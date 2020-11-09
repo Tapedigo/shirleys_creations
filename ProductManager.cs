@@ -9,8 +9,7 @@ namespace shirleys_creations
     {
         
         string location = Path.Combine(Directory.GetCurrentDirectory(),"Products.json");
-        Products productsDisplay = new Products();
-        public static List<Products> DeserializeProducts(string fileName)
+        public static IList<Products> DeserializeProducts(string fileName)
         {
             var products = new List<Products>();
             var serializer = new JsonSerializer();
@@ -21,19 +20,19 @@ namespace shirleys_creations
             }
             return products;
         }
-        
+            List<Products> products = new List<Products>();
         public void ViewAllProducts()
         {
-            foreach (var product in productsDisplay.Name)
+            foreach (var i in products)
             {
-                Console.WriteLine(product.ToString());
+                Console.WriteLine(i.Name);
             }
         }
         public void ViewAllProductTypes()
         {
-            foreach (var type in productsDisplay.TypeOfProduct)
+            foreach (var type in products)
             {
-                Console.WriteLine(type.ToString());
+                Console.WriteLine(type.TypeOfProduct);
             }
         }
 

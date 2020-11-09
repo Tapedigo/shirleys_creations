@@ -11,7 +11,6 @@ namespace shirleys_creations
             
             while (keepGoing == true)
             {
-                
                 Console.WriteLine("Welcome to Shirley's Creations!");
                 Console.WriteLine("Select what you would like to do today?");
                 Console.WriteLine("0. Exit the store");
@@ -19,8 +18,9 @@ namespace shirleys_creations
                 Console.WriteLine("2. View all categories of products in the store.");
                 Console.WriteLine("3. Request a custom order");
                 Console.WriteLine("4. Ask Shirley a question");
+                Console.WriteLine("5. Return to main menu");
                 string userInput = Console.ReadLine();
-
+                
                 switch (userInput)
                 {
                     case "0":
