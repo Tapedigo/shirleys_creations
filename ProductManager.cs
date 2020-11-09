@@ -20,22 +20,21 @@ namespace shirleys_creations
             }
             return products;
         }
-            List<Products> products = new List<Products>();
+            private List<Products> _products = new List<Products>();
         public void ViewAllProducts()
         {
-            foreach (var i in products)
+            foreach (var name in _products)
             {
-                Console.WriteLine(i.Name);
+                Console.WriteLine(name.ToString());
             }
         }
         public void ViewAllProductTypes()
         {
-            foreach (var type in products)
+            foreach (var type in _products)
             {
-                Console.WriteLine(type.TypeOfProduct);
+                Console.WriteLine(type.ToString());
             }
         }
-
     }
 
 }
