@@ -6,13 +6,11 @@ namespace shirleys_creations
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
-        [JsonPropertyName("ID")]
-        public string Id { get; set; }
         [JsonPropertyName("price")]
         public int Price { get; set; }
-        [JsonPropertyName("product-type")]
-        public string TypeOfProduct { get; set; }
         public string Size { get; set; }
+        [JsonPropertyName("ID")]
+        public string Id { get; set; }
         public string Description { get; set; }
     }
 }

@@ -1,28 +1,45 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace shirleys_creations
 {
     public class UserInterface
     {
+        private List<Products> _products = new List<Products>();
+
         private ProductManager _productManager = new ProductManager();
-        internal void UserInterfaceMenu()
+        public void ViewAllProducts()
+        {
+            foreach (var product in _productManager.DeserializeProducts())
+            {
+                _productManager.DeserializeProducts();
+                Console.WriteLine($"{product.Name}: {product.Description}");
+            }
+        }
+        // public void ViewAllProductTypes()
+        // {
+            
+        //     foreach (var type in _productManager.DeserializeProducts())
+        //     {
+        //         Console.WriteLine(type.TypeOfProduct);
+        //     }
+        // }
+        public void UserInterfaceMenu()
         {
             bool keepGoing = false;
-            
+            _productManager.DisplayWelcome();
             while (!keepGoing)
             {
-                Console.WriteLine("Welcome to Shirley's Creations!");
-                Console.WriteLine("Select what you would like to do today?");
-                Console.WriteLine("0. Exit the store");
-                Console.WriteLine("1. View all products in the store");
-                Console.WriteLine("2. View all categories of products in the store.");
-                Console.WriteLine("3. Request a custom order");
-                Console.WriteLine("4. Ask Shirley a question");
-                Console.WriteLine("5. Return to main menu");
                 string userInput = Console.ReadLine();
                 
                 switch (userInput)
                 {
+                    case "":
+                    {
+                    _productManager.DisplayWelcome();
+                    break;
+                    }
                     case "0":
                     {
                     keepGoing = true;
@@ -30,17 +47,18 @@ namespace shirleys_creations
                     }
                     case "1": 
                     {
-                    _productManager.ViewAllProducts();
+                    ViewAllProducts();
+                    _productManager.PromptToReturn();
                     break;
                     }
                     case "2":
                     {
-                    _productManager.ViewAllProductTypes();
+                    // ViewAllProductTypes();
+                    // _productManager.PromptToReturn();
                     break;
                     }
-                    
                 }
             }
         }
     }
-}
+    }

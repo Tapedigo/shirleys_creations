@@ -1,41 +1,37 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Newtonsoft.Json;
 
 namespace shirleys_creations
 {
     public class ProductManager
-    {
-        string location = Path.Combine(Directory.GetCurrentDirectory(),"Products.json");
-        public static IList<Products> DeserializeProducts(string fileName)
+    {   
+        public List<Products> DeserializeProducts()
         {
+            string location = Path.Combine(Directory.GetCurrentDirectory(),"Products.json");
             var products = new List<Products>();
             var serializer = new JsonSerializer();
-            using (var r = new StreamReader(fileName))
+            using (var r = new StreamReader(location))
             using (var jr = new JsonTextReader(r))
             {
                 products = serializer.Deserialize<List<Products>>(jr);
             }
             return products;
         }
-
-        Products products = new Products();
-        public void ViewAllProducts()
+        public void DisplayWelcome()
         {
-            foreach (var name in products.Name)
-            {
-                Console.WriteLine(name);
-            }
+            Console.WriteLine("Welcome to Shirley's Creations!");
+            Console.WriteLine("Select what you would like to do today?");
+            Console.WriteLine("0. Exit the store");
+            Console.WriteLine("1. View all products in the store");
+            Console.WriteLine("3. Request a custom order");
+            Console.WriteLine("4. Ask Shirley a question");
+            Console.WriteLine("5. Return to main menu");
         }
-        public void ViewAllProductTypes()
+        public void PromptToReturn()
         {
-            foreach (var type in products.TypeOfProduct)
-            {
-                Console.WriteLine(type);
-            }
+            Console.Write("Press enter to return to main menu. ");
         }
     }
-
 }

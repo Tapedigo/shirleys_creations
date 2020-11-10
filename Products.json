@@ -2,16 +2,14 @@
   {
     "name": "70s Band T-shirt Quilt",
     "price": "80",
-    "product-type": "Quilt",
     "Size": "8 X 8",
     "ID": "1",
     "Description": "A quilt custom made from an assortment of 1970s band T-shirts."
   },
 
   {
-    "name": "Stadard Black and White Quilt",
+    "name": "Standard Black and White Quilt",
     "price": "50",
-    "product-type": "Quilt",
     "Size": "7 X 7",
     "ID": "2",
     "Description": "A standard quilt made in standard checker board pattern"
@@ -19,7 +17,6 @@
   {
     "name": "Superhero T-Shirt Quilt",
     "price": "80",
-    "product-type": "Quilt",
     "Size": "8 X 8",
     "ID": "3",
     "Description": "A quilt custom made from several Marvel/DC T-shirts"
