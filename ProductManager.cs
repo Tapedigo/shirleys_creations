@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace shirleys_creations
 {
     public class ProductManager
     {
-        
         string location = Path.Combine(Directory.GetCurrentDirectory(),"Products.json");
         public static IList<Products> DeserializeProducts(string fileName)
         {
@@ -20,19 +20,20 @@ namespace shirleys_creations
             }
             return products;
         }
-            private List<Products> _products = new List<Products>();
+
+        Products products = new Products();
         public void ViewAllProducts()
         {
-            foreach (var name in _products)
+            foreach (var name in products.Name)
             {
-                Console.WriteLine(name.ToString());
+                Console.WriteLine(name);
             }
         }
         public void ViewAllProductTypes()
         {
-            foreach (var type in _products)
+            foreach (var type in products.TypeOfProduct)
             {
-                Console.WriteLine(type.ToString());
+                Console.WriteLine(type);
             }
         }
     }

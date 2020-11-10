@@ -14,10 +14,5 @@ namespace shirleys_creations
         public string TypeOfProduct { get; set; }
         public string Size { get; set; }
         public string Description { get; set; }
-
-        public override string ToString()
-        {
-            return $"{Name} {TypeOfProduct}";
-        }
     }
 }

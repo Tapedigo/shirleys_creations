@@ -7,9 +7,9 @@ namespace shirleys_creations
         private ProductManager _productManager = new ProductManager();
         internal void UserInterfaceMenu()
         {
-            bool keepGoing = true;
+            bool keepGoing = false;
             
-            while (keepGoing == true)
+            while (!keepGoing)
             {
                 Console.WriteLine("Welcome to Shirley's Creations!");
                 Console.WriteLine("Select what you would like to do today?");
@@ -25,7 +25,7 @@ namespace shirleys_creations
                 {
                     case "0":
                     {
-                    keepGoing = false;
+                    keepGoing = true;
                     break;
                     }
                     case "1": 
