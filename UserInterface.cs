@@ -57,6 +57,11 @@ namespace shirleys_creations
                     // _productManager.PromptToReturn();
                     break;
                     }
+                    case "3":
+                    {
+                    _productManager.Inquries();
+                    break;
+                    }
                 }
             }
         }

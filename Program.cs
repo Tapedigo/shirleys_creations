@@ -10,8 +10,6 @@ namespace shirleys_creations
         {
             var userInterface = new UserInterface();
             userInterface.UserInterfaceMenu();
-            //string location = Path.Combine(Directory.GetCurrentDirectory(),"Products.json");
-            //ProductManager.DeserializeProducts(location);
         }
     }
 }

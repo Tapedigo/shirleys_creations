@@ -7,6 +7,7 @@ namespace shirleys_creations
 {
     public class ProductManager
     {   
+        // Json Reader Method
         public List<Products> DeserializeProducts()
         {
             string location = Path.Combine(Directory.GetCurrentDirectory(),"Products.json");
@@ -25,13 +26,28 @@ namespace shirleys_creations
             Console.WriteLine("Select what you would like to do today?");
             Console.WriteLine("0. Exit the store");
             Console.WriteLine("1. View all products in the store");
-            Console.WriteLine("3. Request a custom order");
-            Console.WriteLine("4. Ask Shirley a question");
-            Console.WriteLine("5. Return to main menu");
+            Console.WriteLine("3. Request a custom order/Ask Shirley a question");
+            Console.WriteLine("4. Return to main menu");
         }
         public void PromptToReturn()
         {
             Console.Write("Press enter to return to main menu. ");
+        }
+
+        public void Inquries()
+        {
+            string textFileLocation = Path.Combine(Directory.GetCurrentDirectory(), "Test.txt");
+            string question;
+            string prompt = "What would you like to ask Shirley?: ";
+            
+            Console.Write(prompt);
+            question = Console.ReadLine();
+            StreamWriter w = new StreamWriter(textFileLocation);
+            w.Write("\r\nLog Entry : ");
+            w.WriteLine($"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}");
+            w.WriteLine(question);
+            w.Close();
+            PromptToReturn();
         }
     }
 }
