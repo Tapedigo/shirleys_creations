@@ -30,12 +30,10 @@ namespace shirleys_creations
         }
         public void ViewAllPricesInGbp()
         {
-            foreach (var price in _convertToPound.CovertToPound())
+            foreach (var price in _convertToPound.priceInGbp())
             {
-                foreach (var product in _productManager.DeserializeProducts())
-                {
-                    Console.WriteLine($"{product.Name}: £{price}");
-                }
+                _convertToPound.priceInGbp();
+                Console.WriteLine($"{price}");
             }
         }
         public void UserInterfaceMenu()
@@ -78,8 +76,8 @@ namespace shirleys_creations
                     }
                     case "4":
                     {
-                        ViewAllPricesInGbp();
-                        _productManager.PromptToReturn();
+                        // ViewAllPricesInGbp();
+                        // _productManager.PromptToReturn();
                         break;
                     }
                 }
