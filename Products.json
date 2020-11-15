@@ -9,7 +9,7 @@
   },
 
   {
-    "name": "Standard Black and White Quilt",
+    "name": "Standard Black and Red Quilt",
     "price": "50",
     "Size": "7 X 7",
     "Type": "Quilt",
@@ -23,5 +23,13 @@
     "Type": "Quilt",
     "ID": "3",
     "Description": "A quilt custom made from several Marvel/DC T-shirts"
+  },
+  {
+    "name": "Standard Cloth Quilt Themed Mask",
+    "price": "35",
+    "Size": "",
+    "Type": "Mask",
+    "ID": "4",
+    "Description": "A mask made to resemble a black and red quilt"
   }
 ]

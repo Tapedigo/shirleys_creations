@@ -20,14 +20,17 @@ namespace shirleys_creations
             }
             return products;
         }
+        // Main menu
         public void DisplayWelcome()
         {
             Console.WriteLine("Welcome to Shirley's Creations!");
             Console.WriteLine("Select what you would like to do today?");
             Console.WriteLine("0. Exit the store");
             Console.WriteLine("1. View all products in the store");
+            Console.WriteLine("2. View the price of each Product in USD");
             Console.WriteLine("3. Request a custom order/Ask Shirley a question");
-            Console.WriteLine("4. Return to main menu");
+            Console.WriteLine("4. View the price of each Product in GBP");
+            Console.WriteLine("5. View the price of each Product in CAD");
         }
         public void PromptToReturn()
         {
