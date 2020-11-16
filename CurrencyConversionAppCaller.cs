@@ -4,41 +4,24 @@ using Newtonsoft.Json;
 using System.Net;
 using System.IO;
 
-namespace ExchangeRate_API
+namespace shirleys_creations
     {
 
     class Rates
         {
-        // public static bool Import()
-        //     {
-        //     try
-        //         {
-        //         String URLString = "https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/USD";
-        //         using (var webClient = new System.Net.WebClient())
-        //             {
-        //             var json = webClient.DownloadString(URLString);
-        //             API_Obj Test = (API_Obj)JsonConvert.DeserializeObject(json);
-        //             return true;
-        //             }
-        //         }
-        //     catch (Exception)
-        //         {
-        //         return false;
-        //         }
-        //     }
-        public double ConversionRates()
+        public List<API_Obj> ConversionRates()
         {
-            double Gbprate;
+            var listOfRate = new List<API_Obj>();
             var webClient = new WebClient();
-            byte[] conversionCall = webClient.DownloadData("https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/USD");
+            byte[] conversionCall = webClient.DownloadData("https://v6.exchangerate-api.com/v6/af370279909b3852fbc7252f/latest/USD");
             var serializer = new JsonSerializer();
             using (var stream = new MemoryStream(conversionCall))
             using (var reader = new StreamReader(stream))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                Gbprate = serializer.Deserialize<ConversionRate>(jsonReader).GBP;
+                listOfRate = serializer.Deserialize<List<API_Obj>>(jsonReader);
             }
-            return Gbprate;
+            return listOfRate;
         }
             
         }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using ExchangeRate_API;
 
 namespace shirleys_creations
 {
@@ -8,16 +7,17 @@ namespace shirleys_creations
     {
         private ProductManager _productManager = new ProductManager();
         private Rates _rates = new Rates();
+        private ConversionRate rate = new ConversionRate();
+        double poundRate = rate.GBP;
+        public List<double> poundPrice = new List<double>();
         public List<double> priceInGbp()
         {
-            List<double> priceInPound;
-            double poundRate = _rates.ConversionRates();
             foreach (var product in _productManager.DeserializeProducts())
             {
                 double result = product.Price * poundRate;
-                priceInPound.Add(result);
+                poundPrice.Add(result);
             }
-            return priceInPound;
+            return poundPrice;
         }
     }
 }
