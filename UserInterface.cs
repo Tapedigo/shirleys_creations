@@ -30,11 +30,10 @@ namespace shirleys_creations
         }
         public void ViewAllPricesInGbp()
         {
-            // foreach (var price in _convertToPound.priceInGbp())
-            // {
-            //     _convertToPound.priceInGbp();
-            //     Console.WriteLine($"{price}");
-            // }
+            foreach (var price in _convertToPound.priceInGbp())
+            {
+                Console.WriteLine($"{price}");
+            }
         }
         public void UserInterfaceMenu()
         {

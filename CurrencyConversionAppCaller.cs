@@ -7,11 +7,11 @@ using System.IO;
 namespace shirleys_creations
     {
 
-    class Rates
+    public class Rates
         {
-        public List<API_Obj> ConversionRates()
+        public List<ConversionRate> ConversionRates()
         {
-            var listOfRate = new List<API_Obj>();
+            var listOfRate = new List<ConversionRate>();
             var webClient = new WebClient();
             byte[] conversionCall = webClient.DownloadData("https://v6.exchangerate-api.com/v6/af370279909b3852fbc7252f/latest/USD");
             var serializer = new JsonSerializer();
@@ -19,7 +19,7 @@ namespace shirleys_creations
             using (var reader = new StreamReader(stream))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                listOfRate = serializer.Deserialize<List<API_Obj>>(jsonReader);
+                listOfRate = serializer.Deserialize<List<ConversionRate>>(jsonReader);
             }
             return listOfRate;
         }
