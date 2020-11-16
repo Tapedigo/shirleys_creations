@@ -9,20 +9,23 @@ namespace shirleys_creations
 
     public class Rates
         {
-        public List<ConversionRate> ConversionRates()
-        {
-            var listOfRate = new List<ConversionRate>();
-            var webClient = new WebClient();
-            byte[] conversionCall = webClient.DownloadData("https://v6.exchangerate-api.com/v6/af370279909b3852fbc7252f/latest/USD");
-            var serializer = new JsonSerializer();
-            using (var stream = new MemoryStream(conversionCall))
-            using (var reader = new StreamReader(stream))
-            using (var jsonReader = new JsonTextReader(reader))
+        public static bool Import()
             {
-                listOfRate = serializer.Deserialize<List<ConversionRate>>(jsonReader);
+            try
+                {
+                String URLString = "https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/USD";
+                using (var webClient = new System.Net.WebClient())
+                    {
+                    var json = webClient.DownloadString(URLString);
+                    API_Obj Test = (API_Obj)JsonConvert.DeserializeObject(json);
+                    return true;
+                    }
+                }
+            catch (Exception)
+                {
+                return false;
+                }
             }
-            return listOfRate;
-        }
             
         }
 

@@ -7,6 +7,7 @@ namespace shirleys_creations
     {
         private ProductManager _productManager = new ProductManager();
         private ConversionRate _conversionRate = new ConversionRate();
+        private Rates _rates = new Rates();
         public List<double> poundPrice = new List<double>();
         public List<double> priceInGbp()
         {
