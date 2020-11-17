@@ -4,31 +4,22 @@ using Newtonsoft.Json;
 using System.Net;
 using System.IO;
 
-namespace shirleys_creations
+namespace ExchangeRate_API
     {
 
-    public class Rates
+    class Rates
         {
-        public static bool Import()
+        public static API_Obj Import()
             {
-            try
-                {
-                String URLString = "https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/USD";
+                String URLString = "https://v6.exchangerate-api.com/v6/af370279909b3852fbc7252f/latest/USD";
                 using (var webClient = new System.Net.WebClient())
                     {
-                    var json = webClient.DownloadString(URLString);
-                    API_Obj Test = (API_Obj)JsonConvert.DeserializeObject(json);
-                    return true;
+                        var json = webClient.DownloadString(URLString);
+                        API_Obj aPI_Obj = JsonConvert.DeserializeObject<API_Obj>(json);
+                        return aPI_Obj;
                     }
                 }
-            catch (Exception)
-                {
-                return false;
-                }
-            }
-            
         }
-
     public class API_Obj
         {
         public string result { get; set; }

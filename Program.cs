@@ -11,5 +11,5 @@ namespace shirleys_creations
             var userInterface = new UserInterface();
             userInterface.UserInterfaceMenu();
         }
-    }
+}
 }

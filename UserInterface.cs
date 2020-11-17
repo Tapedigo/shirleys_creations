@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
+using ExchangeRate_API;
 
 namespace shirleys_creations
 {
@@ -28,11 +28,24 @@ namespace shirleys_creations
                 Console.WriteLine("");
             }
         }
+
         public void ViewAllPricesInGbp()
         {
-            foreach (var price in _convertToPound.priceInGbp())
+            List<string> productsName = new List<string>();
+            List<double> poundPrice = new List<double>();
+            foreach (var item in _productManager.DeserializeProducts())
             {
-                Console.WriteLine($"{price}");
+                productsName.Add(item.Name);
+            }
+            foreach (var item in _convertToPound.priceInGbp())
+            {
+                poundPrice.Add(item);
+            }
+            
+            for (int i = 0; i <  productsName.Count; i++)
+            {
+                Console.WriteLine(productsName[i].ToString());
+                Console.WriteLine($"£{poundPrice[i]}");
             }
         }
         public void UserInterfaceMenu()

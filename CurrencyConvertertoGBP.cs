@@ -1,20 +1,21 @@
 using System;
 using System.Collections.Generic;
+using shirleys_creations;
 
-namespace shirleys_creations
+namespace ExchangeRate_API
 {
     public class ConvertPriceToPound
     {
         private ProductManager _productManager = new ProductManager();
-        private ConversionRate _conversionRate = new ConversionRate();
         private Rates _rates = new Rates();
         public List<double> poundPrice = new List<double>();
         public List<double> priceInGbp()
         {
-            foreach (var product in _productManager.DeserializeProducts())
+            API_Obj api = Rates.Import();
+            foreach (var products in _productManager.DeserializeProducts())
             {
-                double tempUSD = product.Price;
-                double tempGBP = _conversionRate.GBP;
+                double tempUSD = products.Price;
+                double tempGBP = api.conversion_rates.GBP;
                 double result = tempGBP * tempUSD;
                 poundPrice.Add(result);
             }
