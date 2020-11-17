@@ -46,6 +46,28 @@ namespace shirleys_creations
             {
                 Console.WriteLine(productsName[i].ToString());
                 Console.WriteLine($"£{poundPrice[i]}");
+                Console.WriteLine("");
+            }
+        }
+
+        public void ViewAllPricesInCDollar()
+        {
+            List<string> productsName = new List<string>();
+            List<double> cDollarPrice = new List<double>();
+            foreach (var item in _productManager.DeserializeProducts())
+            {
+                productsName.Add(item.Name);
+            }
+            foreach (var item in _convertToPound.priceInGbp())
+            {
+                cDollarPrice.Add(item);
+            }
+            
+            for (int i = 0; i <  productsName.Count; i++)
+            {
+                Console.WriteLine(productsName[i].ToString());
+                Console.WriteLine($"{cDollarPrice[i]}$");
+                Console.WriteLine("");
             }
         }
         public void UserInterfaceMenu()
@@ -89,6 +111,12 @@ namespace shirleys_creations
                     case "4":
                     {
                         ViewAllPricesInGbp();
+                        _productManager.PromptToReturn();
+                        break;
+                    }
+                    case "5":
+                    {
+                        ViewAllPricesInCDollar();
                         _productManager.PromptToReturn();
                         break;
                     }

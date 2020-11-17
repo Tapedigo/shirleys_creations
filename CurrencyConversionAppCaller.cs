@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.Net;
-using System.IO;
 
 namespace ExchangeRate_API
     {

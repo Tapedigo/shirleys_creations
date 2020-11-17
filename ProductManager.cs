@@ -50,7 +50,6 @@ namespace shirleys_creations
             w.WriteLine($"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}");
             w.WriteLine(question);
             w.Close();
-            PromptToReturn();
         }
     }
 }
