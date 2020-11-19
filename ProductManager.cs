@@ -31,10 +31,11 @@ namespace shirleys_creations
             Console.WriteLine("3. Request a custom order/Ask Shirley a question");
             Console.WriteLine("4. View the price of each Product in GBP");
             Console.WriteLine("5. View the price of each Product in CAD");
+            Console.WriteLine("6. Add products to cart/checkout");
         }
         public void PromptToReturn()
         {
-            Console.Write("Press enter to return to main menu. ");
+            Console.Write("Press type home and press enter to return to main menu. ");
         }
 
         public void Inquries()
