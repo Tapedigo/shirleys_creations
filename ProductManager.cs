@@ -10,7 +10,9 @@ namespace shirleys_creations
         // Json Reader Method
         public List<Products> DeserializeProducts()
         {
-            string location = Path.Combine(Directory.GetCurrentDirectory(),"Products.json");
+            // work in progress. I want it to be able to work on anyones computer not just mine.
+            string location = "/Users/tylerpedigo/shirleys_creations/Products.json";
+            //string location = Path.Combine(Directory.GetCurrentDirectory(),"Products.json");
             var products = new List<Products>();
             var serializer = new JsonSerializer();
             using (var r = new StreamReader(location))
